@@ -40,18 +40,37 @@ class BuddhistFrontPageController extends Controller
             'slides' => $slides,
         ]);
     }
-
-    public function about()
+    public function about(Request $request)
     {
-        $aboutData = Page::where('code', 'about')->with('images')->first();
-        return Inertia::render('Buddhist/About', [
-            'aboutData' => $aboutData,
+        return Inertia::render('Frontend/About');
+    }
+    public function projects(Request $request)
+    {
+        return Inertia::render('Frontend/project');
+    }
+    public function homepage(Request $request)
+    {
+        $slides = Banner::all();
+        return Inertia::render('Frontend/HomePage',[
+            'slides' => $slides,
         ]);
     }
-
-    public function contact(Request $request)
+    public function products(Request $request)
     {
-        return Inertia::render('TODO_PATH/Contact');
+        return Inertia::render('Frontend/Products/Index');
+    }
+
+     public function services(Request $request)
+    {
+        return Inertia::render('Frontend/Services/Index');
+    }
+     public function contact(Request $request)
+    {
+        return Inertia::render('Frontend/Contact/Index');
+    }
+     public function news(Request $request)
+    {
+        return Inertia::render('Frontend/News');
     }
 
     public function posts(Request $request)

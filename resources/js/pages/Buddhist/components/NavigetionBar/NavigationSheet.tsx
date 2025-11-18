@@ -11,13 +11,13 @@ export const NavigationSheet = () => {
             <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="rounded border-primary text-primary">
                     <Menu />
-                </Button>
+                </Button>   
             </SheetTrigger>
             <SheetContent className="px-6 py-3">
                 <SheetLogo />
-                <div className="mt-4 flex w-full justify-center">
+                {/* <div className="mt-4 flex w-full justify-center">
                     <NavLanguage />
-                </div>
+                </div> */}
                 <NavMenu orientation="vertical" className="mt-6 [&>div]:h-full" />
             </SheetContent>
         </Sheet>

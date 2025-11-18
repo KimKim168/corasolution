@@ -18,18 +18,18 @@ export function NavbarLogo() {
     return (
         <Link href={`/`}>
             <div className="flex items-center gap-4">
-                <Avatar className="size-18">
+                <Avatar className="size-20">
                     <AvatarImage src={logo} alt={name || 'Logo'} className="rounded-full dark:hidden" />
                     <AvatarImage src={logoDark} alt={name || 'Logo'} className="hidden rounded-full dark:block" />
                     <AvatarFallback>{name?.charAt(0) || 'L'}</AvatarFallback>
                 </Avatar>
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                     {website_info?.name_kh && (
                         <p className="text-2xl leading-tight font-semibold text-primary md:text-3xl">{website_info?.name_kh}</p>
                     )}
                     {website_info?.name && <p className="text-xl leading-tight font-semibold text-muted-foreground md:text-2xl">{website_info?.name}</p>}
-                    {/* {description && <p className="text-base text-muted-foreground md:text-xl">{description}</p>} */}
-                </div>
+                    {description && <p className="text-base text-muted-foreground md:text-xl">{description}</p>}
+                </div> */}
             </div>
         </Link>
     );

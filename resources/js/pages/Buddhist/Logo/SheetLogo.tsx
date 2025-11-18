@@ -24,12 +24,20 @@ export function SheetLogo() {
                     <AvatarFallback>{name?.charAt(0) || 'L'}</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col items-center">
+                    <a
+                        href="#"
+                        className="text-md rounded-md border-transparent bg-gradient-to-r from-teal-400 to-[#2d37a4] p-2 text-white hover:bg-[#3a3e67] hover:bg-transparent hover:from-blue-900 hover:to-teal-400 md:p-2"
+                    >
+                        Chat with Us
+                    </a>
+                </div>
+                {/* <div className="flex flex-col items-center">
                     {website_info?.name_kh && (
                         <p className="text-xl leading-tight font-semibold text-foreground sm:text-xl">{website_info?.name_kh}</p>
                     )}
                     {website_info?.name && <p className="text-base leading-tight font-semibold text-muted-foreground sm:text-lg">{website_info?.name}</p>}
-                    {/* {description && <p className="text-xs text-foreground sm:text-sm">{description}</p>} */}
-                </div>
+                    {description && <p className="text-xs text-foreground sm:text-sm">{description}</p>}
+                </div> */}
             </div>
         </Link>
     );

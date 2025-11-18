@@ -5,10 +5,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', [BuddhistFrontPageController::class, 'index']);
-Route::get('/posts', [BuddhistFrontPageController::class, 'posts']);
+Route::get('/', [BuddhistFrontPageController::class, 'homepage']);
+Route::get('/about', [BuddhistFrontPageController::class, 'about']);
+Route::get('/products', [BuddhistFrontPageController::class, 'products']);
+Route::get('/services', [BuddhistFrontPageController::class, 'services']);
+Route::get('/contact', [BuddhistFrontPageController::class, 'contact']);
+Route::get('/news', [BuddhistFrontPageController::class, 'news']);
 Route::get('/posts/{id}', [BuddhistFrontPageController::class, 'post_show']);
 Route::get('/about', [BuddhistFrontPageController::class, 'about']);
+Route::get('/projects', [BuddhistFrontPageController::class, 'projects']);
 
 // Route::get('/news', function () {
 //     return Inertia::render('Buddhist/News/Index');

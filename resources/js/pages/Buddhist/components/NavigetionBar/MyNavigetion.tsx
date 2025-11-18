@@ -1,8 +1,7 @@
-import NavLanguage from '@/components/Navbar/NavLanguage';
 import { useEffect, useState } from 'react';
+import { NavbarLogo } from '../../Logo/NavbarLogo';
 import { NavigationSheet } from './NavigationSheet';
 import { NavMenu } from './NavMenu';
-import { NavbarLogo } from '../../Logo/NavbarLogo';
 
 const MyNavigetion = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -23,11 +22,19 @@ const MyNavigetion = () => {
         <nav
             className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-md' : 'bg-background'}`}
         >
-            <div className="section-container flex h-26 items-center justify-between gap-6">
+            <div className="section-container flex h-24 items-center justify-between gap-6">
                 <NavbarLogo />
                 <div className="hidden items-center gap-4 lg:flex">
                     <NavMenu />
-                    <NavLanguage />
+                    <div className="flex flex-col items-center">
+                        <a
+                            href="#"
+                            className="rounded-md border-transparent bg-gradient-to-r from-teal-400 to-[#2d37a4] p-2 text-md text-white hover:bg-[#3a3e67] hover:bg-transparent hover:from-blue-900 hover:to-teal-400 md:p-2"
+                        >
+                            Chat with Us
+                        </a>
+                    </div>
+                    {/* <NavLanguage /> */}
                 </div>
 
                 <div className="flex items-center gap-3 lg:hidden">

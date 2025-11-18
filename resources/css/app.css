@@ -143,7 +143,7 @@
 }
 
 /* Switch dark mode */
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
 
 @theme {
     --font-sans:
@@ -227,6 +227,7 @@
 /* --primary-two: #F3AB1C; sesor.com */
 /* --primary: #93191e; buddhist.gov.edu */
 /* --primary: #134571; book-cambo */
+/* --primary: #43428d; corasolution */
 
 /* === End Start Colors Project === */
 
@@ -237,7 +238,7 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: #93191e;
+    --primary: #43428d;
     --dark-primary: #781216;
     --primary-two: #f3ab1c;
     --primary-three: #8ab35e;
@@ -270,10 +271,10 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.87 0 0);
 
-    --true-primary: #93191e;
+    --true-primary: #43428d;
 }
 
-.dark {
+/* .dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.145 0 0);
@@ -310,8 +311,8 @@
     --sidebar-border: oklch(0.269 0 0);
     --sidebar-ring: oklch(0.439 0 0);
 
-    --true-primary: #93191e;
-}
+    --true-primary: #43428d;
+} */
 
 @layer base {
     * {

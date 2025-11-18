@@ -11,6 +11,9 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
     const menuItems = [
         { id: 1, name: 'Home', link: '/' },
         { id: 7, name: 'About', link: '/about' },
+        { id: 8, name: 'Services', link: '/services' },
+        { id: 9, name: 'Products', link: '/products' },
+        { id: 10, name: 'Contact', link: '/contact' },
     ];
 
     const getLinkClass = (linkPath: string) =>
@@ -24,7 +27,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
             <NavigationMenuList className="justify-end gap-3 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start data-[orientation=vertical]:justify-start">
                 {menuItems.map((item) => (
                     <NavigationMenuItem key={item.id} className="text-primary max-lg:w-full max-lg:text-center">
-                        <NavigationMenuLink asChild>
+                        <NavigationMenuLink className='text-md' asChild>
                             <Link prefetch href={item.link} className={getLinkClass(item.link)}>
                                 {t(item.name)}
                             </Link>
@@ -32,7 +35,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
                     </NavigationMenuItem>
                 ))}
 
-                <span className="h-[1px] w-full bg-primary/60 lg:h-5 lg:w-[1px]"></span>
+                {/* <span className="h-[1px] w-full bg-primary/60 lg:h-5 lg:w-[1px]"></span>
 
                 {post_categories?.map((item: any) => {
                     const link = `/posts?category_code=${item?.code}`;
@@ -54,7 +57,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     );
-                })}
+                })} */}
             </NavigationMenuList>
         </NavigationMenu>
     );

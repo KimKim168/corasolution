@@ -100,7 +100,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                 />
                 {errors && <AllErrorsAlert title="Please fix the following errors" errors={errors} />}
 
-                {/* <div className="sticky top-0">
+                <div className="sticky top-0">
                     <Tabs value={inputLanguage} onValueChange={(val: any) => setInputLanguage(val)}>
                         <TabsList className="border bg-border/50 p-1 dark:border-white/20">
                             <TabsTrigger value="default" className="h-full dark:data-[state=active]:bg-white/20">
@@ -246,25 +246,8 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             )}
                         </div>
                     </div>
-                )} */}
+                )}
                 <div className="form-field-container">
-                        <FormField
-                            required
-                            id="name"
-                            name="name"
-                            label="Name"
-                            value={data.name}
-                            onChange={(val) => setData('name', val)}
-                            error={errors.name}
-                        />
-                        <FormField
-                            id="name_kh"
-                            name="name_kh"
-                            label="Name Khmer"
-                            value={data.name_kh}
-                            onChange={(val) => setData('name_kh', val)}
-                            error={errors.name_kh}
-                        />
                          <FormField
                             required
                             type="number"
@@ -275,7 +258,6 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             onChange={(val) => setData('order_index', val)}
                             error={errors.order_index}
                             description="Lower number has higher priority."
-                            containerClassName="col-span-2"
                         />
 
                         <div className="col-span-2">

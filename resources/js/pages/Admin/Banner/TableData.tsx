@@ -22,13 +22,13 @@ const TableData = () => {
                             <TableHeadWithSort field="id" label="ID" />
                             <TableHeadWithSort label="Action" />
                             <TableHeadWithSort label="Image" />
-                            {/* <TableHeadWithSort field="type_code" label="Type" /> */}
+                            <TableHeadWithSort field="type_code" label="Type" />
                             <TableHeadWithSort field="name" label="Name" />
                             <TableHeadWithSort field="name_kh" label="Name Khmer" />
                             <TableHeadWithSort field="order_index" label="Order Index" />
-                            {/* <TableHeadWithSort field="link" label="Link" />
+                            <TableHeadWithSort field="link" label="Link" />
                             <TableHeadWithSort field="short_description" label="Short Description" />
-                            <TableHeadWithSort field="short_description_kh" label="Short Description Khmer" /> */}
+                            <TableHeadWithSort field="short_description_kh" label="Short Description Khmer" />
                             <TableHeadWithSort field="created_at" label="Created at" />
                             <TableHeadWithSort field="created_by" label="Created by" />
                             <TableHeadWithSort field="updated_at" label="Updated at" />
@@ -67,13 +67,13 @@ const TableData = () => {
                                         image={`/assets/images/banners/thumb/${item.image}`}
                                     />
                                 </TableCell>
-                                {/* <TableCellText value={item.type_code} /> */}
+                                <TableCellText value={item.type_code} />
                                 <TableCellText value={item.name} />
                                 <TableCellText value={item.name_kh} />
                                 <TableCellText value={item.order_index} />
-                                {/* <TableCellText value={item.link} isLink />
+                                <TableCellText value={item.link} isLink />
                                 <TableCellText value={item.short_description} />
-                                <TableCellText value={item.short_description_kh} /> */}
+                                <TableCellText value={item.short_description_kh} />
                                 <TableCellDate value={item.created_at} />
                                 <TableCellText value={item.created_user?.name} />
                                 <TableCellDate value={item.updated_at} />
