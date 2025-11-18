@@ -7,7 +7,7 @@ const Index = () => {
         <Layout>
             <div className="bg-background lg:bg-muted">
                 <Slide />
-                <CategoryWithPosts />
+                <CategoryWithPosts />   
             </div>
         </Layout>
     );

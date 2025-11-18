@@ -85,6 +85,7 @@
     src: url('/assets/fonts/KantumruyPro-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
+
 /* End Sesor Fonts */
 
 /* Scroll Bar Custom */
@@ -228,6 +229,7 @@
 /* --primary: #93191e; buddhist.gov.edu */
 /* --primary: #134571; book-cambo */
 /* --primary: #43428d; corasolution */
+/* --primary-two: #2d37a4; corasolution */
 
 /* === End Start Colors Project === */
 
@@ -240,7 +242,7 @@
     --popover-foreground: oklch(0.145 0 0);
     --primary: #43428d;
     --dark-primary: #781216;
-    --primary-two: #f3ab1c;
+    --primary-two: #2d37a4;
     --primary-three: #8ab35e;
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
@@ -283,7 +285,7 @@
     --popover-foreground: oklch(0.985 0 0);
     --primary: #fafafa;
     --dark-primary: #fafafa;
-    --primary-two: #f3ab1c;
+    --primary-two: #2d37a4;
     --primary-three: #8ab35e;
     --primary-foreground: oklch(0.205 0 0);
     --secondary: oklch(0.269 0 0);

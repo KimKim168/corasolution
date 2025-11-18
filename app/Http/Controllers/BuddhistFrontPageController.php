@@ -23,23 +23,23 @@ class BuddhistFrontPageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $categoryWithPostsData = PostCategory::with(['posts' => function ($query) {
-            $query->orderBy('created_at', 'desc')
-                ->select(['id', 'category_code', 'thumbnail', 'title', 'title_kh', 'short_description', 'short_description_kh']) // include FK and PK
-                ->limit(6);
-        }])
-            ->orderBy('order_index')
-            ->orderBy('name')
-            ->get();
+    // public function index()
+    // {
+    //     $categoryWithPostsData = PostCategory::with(['posts' => function ($query) {
+    //         $query->orderBy('created_at', 'desc')
+    //             ->select(['id', 'category_code', 'thumbnail', 'title', 'title_kh', 'short_description', 'short_description_kh']) // include FK and PK
+    //             ->limit(6);
+    //     }])
+    //         ->orderBy('order_index')
+    //         ->orderBy('name')
+    //         ->get();
 
-        $slides = Banner::all();
-        return Inertia::render('Buddhist/Index', [
-            'categoryWithPostsData' => $categoryWithPostsData,
-            'slides' => $slides,
-        ]);
-    }
+    //     $slides = Banner::all();
+    //     return Inertia::render('Buddhist/Index', [
+    //         'categoryWithPostsData' => $categoryWithPostsData,
+    //         'slides' => $slides,
+    //     ]);
+    // }
     public function about(Request $request)
     {
         return Inertia::render('Frontend/About');

@@ -17,15 +17,17 @@ export function FooterLogo() {
 
     return (
         <Link href={`/`}>
-            <div className="flex flex-col items-center gap-4">
-                <Avatar className="size-18">
+            <div className="flex flex-col items-center gap-2">
+                <Avatar className="size-22">
                     <AvatarImage src={logo} alt={name || 'Logo'} className="rounded-full bg-white dark:hidden" />
                     <AvatarImage src={logoDark} alt={name || 'Logo'} className="hidden rounded-full dark:block" />
                     <AvatarFallback>{name?.charAt(0) || 'L'}</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col text-center text-white">
-                    {website_info?.name_kh && <p className="text-2xl leading-tight font-bold md:text-3xl">{website_info?.name_kh}</p>}
-                    {website_info?.name && <p className="text-xl leading-tight font-bold md:text-2xl">{website_info?.name}</p>}
+                    {/* {website_info?.name_kh && <p className="text-2xl leading-tight font-bold md:text-3xl">{website_info?.name_kh}</p>} */}
+                    {website_info?.name && <p className="text-xl leading-tight font-bold md:text-2xl">
+                        {/* {website_info?.name} */} Cora Solution
+                        </p>}
                     {/* {description && <p className="text-sm md:text-base">{description}</p>} */}
                 </div>
             </div>

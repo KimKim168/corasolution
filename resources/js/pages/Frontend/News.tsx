@@ -1,5 +1,6 @@
-import NewsCora from '@/components/NewsCora';
+import NewsCora from '@/components/OurBlog';
 import Layout from '../Buddhist/Layout';
+import NewCora from '@/components/NewCard';
 
 const News = () => {
     return (
@@ -53,7 +54,7 @@ const News = () => {
                     </form>
                 </div>
 
-                <NewsCora/>
+                <NewCora/>
             </section>
         </Layout>
     );

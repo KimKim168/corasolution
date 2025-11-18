@@ -10,11 +10,11 @@ export default function MyFooter() {
     const { website_info, post_categories, media_links } = usePage<any>().props;
     const { t, currentLocale } = useTranslation();
     return (
-        <footer className="relative border-t bg-dark-primary to-transparent text-white dark:bg-gray-950">
-            <StarsBackground className="absolute inset-0 hidden dark:block" />
+        <footer className="relative border-t bg-primary to-transparent text-white dark:bg-gray-950">
+            {/* <StarsBackground className="absolute inset-0 hidden dark:block" /> */}
 
-            <div className="section-container mx-auto">
-                <div className="relative z-10 mx-auto max-w-7xl pt-14 pb-20">
+            <div className="section-container relative mx-auto">
+                <div className=" z-10 mx-auto max-w-7xl pt-10 pb-10">
                     {/* Background Banner */}
                     <div className="absolute right-0 bottom-0 z-0 h-auto w-full max-w-[2000px]">
                         {/* <img
@@ -25,7 +25,7 @@ export default function MyFooter() {
                         <img
                             src="/assets/backgrounds/footer_banner_for_dark.png"
                             alt=""
-                            className="z-0 w-[100%] max-w-7xl object-contain opacity-[40%] lg:opacity-[15%] dark:block"
+                            className="z-0 w-[100%] max-w-7xl  object-contain opacity-[40%] lg:opacity-[15%] dark:block"
                         />
                     </div>
                     <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-4">
@@ -81,24 +81,39 @@ export default function MyFooter() {
                             <ul className="space-y-2">
                                 <li>
                                     <Link prefetch href="/" className="flex items-center gap-2 hover:underline">
-                                        <HouseIcon size={18} /> {t('Home')}
+                                         {t('Home')}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link prefetch href="/about" className="flex items-center gap-2 hover:underline">
-                                        <InfoIcon size={18} /> {t('About')}
+                                         {t('About')}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link prefetch href="/about" className="flex items-center gap-2 hover:underline">
+                                         {t('Services')}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link prefetch href="/about" className="flex items-center gap-2 hover:underline">
+                                         {t('Products')}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link prefetch href="/about" className="flex items-center gap-2 hover:underline">
+                                         {t('Contact')}
                                     </Link>
                                 </li>
 
                                 {/* Dynamic post categories */}
-                                {post_categories?.map((item: any) => (
+                                {/* {post_categories?.map((item: any) => (
                                     <li key={item.code}>
                                         <Link prefetch href={`/posts?category_code=${item.code}`} className="flex items-center gap-2 hover:underline">
                                             <LibraryIcon size={18} />
                                             {currentLocale === 'kh' ? item?.name_kh || item?.name : item?.name}
                                         </Link>
                                     </li>
-                                ))}
+                                ))} */}
                             </ul>
                         </div>
                                 
@@ -118,20 +133,26 @@ export default function MyFooter() {
                                         </li>
                                     ))}
                             </ul>
-                            <div className='mt-3'>
+                            {/* <div className='mt-3'>
                                 <a href="https://info.flagcounter.com/vWRp"><img src="https://s01.flagcounter.com/count2/vWRp/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" /></a>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
 
                 {/* Footer Bottom */}
                 <div className="relative z-10 mx-auto max-w-7xl sm:pb-0">
-                    <div className="flex flex-col items-center justify-between gap-4 py-6 md:flex-row">
-                        <p
+                    <div className="flex flex-col items-center justify-between gap-4 py-2 md:flex-row">
+                        {/* <p
                             className="text-center text-sm"
                             dangerouslySetInnerHTML={{
                                 __html: currentLocale === 'kh' ? website_info?.copyright_kh || website_info?.copyright : website_info?.copyright,
+                            }}
+                        /> */}
+                        <p
+                            className="text-center text-sm"
+                            dangerouslySetInnerHTML={{
+                                __html: "© 2024 Cora Solution. All Rights Reserved."
                             }}
                         />
                         <p className="text-sm">
@@ -140,9 +161,9 @@ export default function MyFooter() {
                     </div>
                 </div>
             </div>
-            <div className="absolute top-4 right-4 z-10">
+            {/* <div className="absolute top-4 right-4 z-10">
                 <SwitchDarkMode3D />
-            </div>
+            </div> */}
         </footer>
     );
 }
