@@ -22,7 +22,6 @@ const HomePage = () => {
             {/* Project */}
             <section className="mt-6 md:mt-12 section-container">
                 <CompletProjectCora/>
-
                 <div className="mx-auto mt-4 px-4 pb-2 text-xl font-bold text-primary md:text-right">
                     <a href="/projects">See More &gt;</a>
                 </div>

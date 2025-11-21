@@ -3,7 +3,7 @@ import Header from './Header';
 
 export default function ServiceCora() {
     return (
-        <section className="overflow-hidden bg-primary py-12 antialiased">
+        <section className="overflow-hidden py-12 antialiased">
             <div className="section-container">
                 {/* Header */}
                 <Header title={"What We Do For You"} short_description={" With extensive industry experience, our company is a leading provider of cutting-edge technology solutions. We specialize in delivering a wide range of services tailored to meet the unique needs of our clients."}/>

@@ -4,7 +4,7 @@ import Layout from '../Buddhist/Layout';
 const project = () => {
     return (
         <Layout>
-            <div className="my-8">
+            <div className="my-12 section-container">
                 <CompletProjectCora />
             </div>
         </Layout>

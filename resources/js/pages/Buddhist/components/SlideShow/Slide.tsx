@@ -53,7 +53,7 @@ const Slide: React.FC = () => {
         >
             <CarouselContent>
                 {slides.map((slide) => (
-                    <CarouselItem key={slide.id}>
+                    <CarouselItem key={slide.id} >
                         <div className="relative w-full aspect-video md:aspect-[16/5] overflow-hidden">
                             {/* Overlay gradient */}
                             <div className="absolute inset-0 z-10"></div>
@@ -67,7 +67,7 @@ const Slide: React.FC = () => {
 
                             {/* Slide Content */}
                             <div className="absolute inset-y-0 left-6 sm:left-10 md:left-16 lg:left-24 flex flex-col justify-center w-[80%] sm:w-[60%] lg:w-[45%] text-white z-20">
-                                <h2 className="font-costum1 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-xl">
+                                <h2 className="font-costum1 text-xl sm:text-2xl md:text-5xl font-bold  drop-shadow-xl">
                                     {slide.title}
                                 </h2>
 
@@ -75,14 +75,14 @@ const Slide: React.FC = () => {
                                     {slide.short_description}
                                 </p>
 
-                                {slide.link && (
+                                {/* {slide.link && (
                                     <a
                                         href={slide.link}
                                         className="mt-6 w-max rounded-full border border-white/40 bg-white/10 px-4 py-2 text-xs sm:text-sm md:text-base backdrop-blur-md transition-all hover:bg-white hover:text-black hover:shadow-xl"
                                     >
                                         Learn More →
                                     </a>
-                                )}
+                                )} */}
                             </div>
                         </div>
                     </CarouselItem>

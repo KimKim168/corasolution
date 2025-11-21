@@ -29,7 +29,7 @@ const NewCora = () => {
                 {newsItems.map((item, index) => (
                     <Link
                         key={index}
-                        className="group flex max-w-lg flex-col items-center rounded-2xl border border-indigo-300 p-4 hover:shadow-lg hover:shadow-indigo-50"
+                        className="group flex max-w-lg flex-col items-center rounded-2xl border border-primary p-4 hover:shadow-lg hover:shadow-primary/10"
                         href="#"
                     >
                         {/* Image Container */}
@@ -41,8 +41,8 @@ const NewCora = () => {
                             </div>
                         </div>
 
-                        <div className="mt-4 text-white">
-                            <h4 className="line-clamp-2 text-lg font-bold">{item.title}</h4>
+                        <div className="mt-4 text-zinc-500">
+                            <h4 className="line-clamp-2 text-primary text-lg font-medium">{item.title}</h4>
                             <p className="mt-2 text-[14px] line-clamp-3">{item.bio}</p>
                         </div>
                     </Link>

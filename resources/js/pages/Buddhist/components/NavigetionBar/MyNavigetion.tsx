@@ -29,7 +29,7 @@ const MyNavigetion = () => {
                     <div className="flex flex-col items-center">
                         <a
                             href="#"
-                            className="rounded-md border-transparent bg-gradient-to-r from-teal-400 to-[#2d37a4] p-2 text-md text-white hover:bg-[#3a3e67] hover:bg-transparent hover:from-blue-900 hover:to-teal-400 md:p-2"
+                            className="rounded-md border-transparent  p-2 text-md text-white bg-primary md:p-2"
                         >
                             Chat with Us
                         </a>

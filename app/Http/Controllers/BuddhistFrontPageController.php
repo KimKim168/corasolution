@@ -72,6 +72,10 @@ class BuddhistFrontPageController extends Controller
     {
         return Inertia::render('Frontend/News');
     }
+     public function detail(Request $request)
+    {
+        return Inertia::render('Frontend/Detail');
+    }
 
     public function posts(Request $request)
     {

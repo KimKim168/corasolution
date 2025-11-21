@@ -1,78 +1,80 @@
 const Benefits = () => {
     return (
-        <div className="section-container mx-auto mt-5 mb-10 grid max-w-7xl grid-cols-1 gap-8 lg:mt-12 lg:grid-cols-12">
-            <div className="sm:mb-8 md:col-span-4">
-                <span className="mb-2 inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-500">Benefits</span>
-                <h2 className="font-costum5 mb-4 bg-gradient-to-r from-[#2d37a4] to-teal-500 bg-clip-text text-4xl leading-normal font-bold text-transparent">
+        <div className="section-container mx-auto my-16 flex flex-col gap-10">
+
+            {/* Header */}
+            <div>
+                <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
+                    Benefits
+                </span>
+                <h2 className=" mb-4 text-2xl md:text-4xl font-bold text-primary">
                     Why Choose Us?
                 </h2>
-                <p className="text-base text-gray-600 md:text-lg"></p>
+                <p className="text-base md:text-lg text-gray-600 max-w-xl">
+                    We provide quality-driven services carefully crafted to elevate your digital presence.
+                </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:col-span-8 md:grid-cols-2">
-                <div className="rounded-lg bg-gray-50 p-6 text-center shadow-md">
-                    <div className="mb-4 text-blue-500">
-                        <img
-                            src="https://www.corasolution.com/assets/images/pages/thumb/1728532064FaQ3631gua.png"
-                            className="mx-auto w-14"
-                            alt="Unique Design Icon"
-                        />
+            {/* Benefit Items */}
+            <div className="flex flex-col md:grid grid-cols-2 gap-8">
+
+                {/* Item */}
+                <div className="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all">
+                    <img
+                        src="https://www.corasolution.com/assets/images/pages/thumb/1728532064FaQ3631gua.png"
+                        className="w-16 h-16 object-contain"
+                        alt=""
+                    />
+                    <div>
+                        <h3 className="text-base md:text-lg font-medium text-primary">15+ Years of Experience</h3>
+                        <p className="text-gray-600">
+                            We bring deep expertise and proven results to every project we handle.
+                        </p>
                     </div>
-                    <h3 className="mb-2 bg-gradient-to-r from-[#2d37a4] to-teal-500 bg-clip-text text-xl font-bold text-transparent md:text-xl">
-                        15+ Years of Experience
-                    </h3>
-                    <p className="text-text_color2 text-xl md:text-[22px]">
-                        A proven track record of delivering successful projects across diverse industries.
-                    </p>
                 </div>
 
-                <div className="rounded-lg bg-gray-50 p-6 text-center shadow-md">
-                    <div className="mb-4 text-blue-500">
-                        <img
-                            src="https://www.corasolution.com/assets/images/pages/thumb/17285321113dlReJRIwN.png"
-                            className="mx-auto w-14"
-                            alt="Unique Design Icon"
-                        />
+                <div className="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all">
+                    <img
+                        src="https://www.corasolution.com/assets/images/pages/thumb/17285321113dlReJRIwN.png"
+                        className="w-16 h-16 object-contain"
+                        alt=""
+                    />
+                    <div>
+                        <h3 className="text-base md:text-lg font-medium text-primary">Customer-Centric Approach</h3>
+                        <p className="text-gray-600">
+                            Your goals come first — we create solutions that fit your needs.
+                        </p>
                     </div>
-                    <h3 className="mb-2 bg-gradient-to-r from-[#2d37a4] to-teal-500 bg-clip-text text-xl font-bold text-transparent md:text-xl">
-                        Customer-Centric Approach
-                    </h3>
-                    <p className="text-text_color2 text-xl md:text-[22px]">
-                        We prioritize understanding your needs and goals to offer solutions that best fit your business.
-                    </p>
                 </div>
 
-                <div className="rounded-lg bg-gray-50 p-6 text-center shadow-md">
-                    <div className="mb-4 text-blue-500">
-                        <img
-                            src="https://www.corasolution.com/assets/images/pages/thumb/1728532164Qj2y5vFmmT.png"
-                            className="mx-auto w-14"
-                            alt="Unique Design Icon"
-                        />
+                <div className="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all">
+                    <img
+                        src="https://www.corasolution.com/assets/images/pages/thumb/1728532164Qj2y5vFmmT.png"
+                        className="w-16 h-16 object-contain"
+                        alt=""
+                    />
+                    <div>
+                        <h3 className="text-base md:text-lg font-medium text-primary">Expert Team</h3>
+                        <p className="text-gray-600">
+                            Our team stays ahead with innovation, skills, and dedication.
+                        </p>
                     </div>
-                    <h3 className="mb-2 bg-gradient-to-r from-[#2d37a4] to-teal-500 bg-clip-text text-xl font-bold text-transparent md:text-xl">
-                        Expert Team
-                    </h3>
-                    <p className="text-text_color2 text-xl md:text-[22px]">
-                        Our team of skilled professionals is dedicated to staying ahead of industry trends to provide top-notch solutions.
-                    </p>
                 </div>
 
-                <div className="rounded-lg bg-gray-50 p-6 text-center shadow-md">
-                    <div className="mb-4 text-blue-500">
-                        <img
-                            src="https://www.corasolution.com/assets/images/pages/thumb/1728532198l5jRrTwc06.png"
-                            className="mx-auto w-14"
-                            alt="Unique Design Icon"
-                        />
+                <div className="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all">
+                    <img
+                        src="https://www.corasolution.com/assets/images/pages/thumb/1728532198l5jRrTwc06.png"
+                        className="w-16 h-16 object-contain"
+                        alt=""
+                    />
+                    <div>
+                        <h3 className="text-base md:text-lg font-medium text-primary">End-to-End Solutions</h3>
+                        <p className="text-gray-600">
+                            One-stop services covering design, development, hosting, and support.
+                        </p>
                     </div>
-                    <h3 className="mb-2 bg-gradient-to-r from-[#2d37a4] to-teal-500 bg-clip-text text-xl font-bold text-transparent md:text-xl">
-                        End-to-End Solutions
-                    </h3>
-                    <p className="text-text_color2 text-xl md:text-[22px]">
-                        From web development to cloud hosting, we offer comprehensive services to support your digital journey.
-                    </p>
                 </div>
+
             </div>
         </div>
     );

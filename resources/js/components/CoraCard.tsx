@@ -3,17 +3,10 @@ import { Link } from '@inertiajs/react';
 import { ChevronRightIcon, ImageOff } from 'lucide-react';
 import { styled } from 'styled-components';
 
-const LibraryCardHoverGradient = () => {
-    const item = {
-        id: 1,
-        title: 'Central Public Library',
-        short_description: 'A modern community library offering books, digital resources, and study spaces.',
-        image: 'https://www.corasolution.com/assets/images/pages/thumb/1728533406nf6QbL1Nve.png',
-    };
-
+const LibraryCardHoverGradient = ({ id, title, short_description, image, href }:any) => {
     return (
         <StyledWrapper>
-            <Link href={`/product/${item.id}`}>
+            <Link href={href}>
                 <div className="card group h-full w-full cursor-pointer">
                     <div className="card__glow" />
 
@@ -22,8 +15,8 @@ const LibraryCardHoverGradient = () => {
                         <Avatar className="card__image aspect-[6/6] size-auto w-full bg-primary/20">
                             <AvatarImage
                                 className="card__image aspect-[6/6] object-cover w-full rounded-none bg-primary/20"
-                                src={`${item.image}`}
-                                alt={item.title}
+                                src={image}
+                                alt={title}
                             />
                             <AvatarFallback className="aspect-[6/6] w-full rounded-none bg-muted">
                                 <ImageOff className="size-10 text-primary opacity-50" />
@@ -32,8 +25,8 @@ const LibraryCardHoverGradient = () => {
 
                         {/* Text */}
                         <div className="mt-2 flex flex-col gap-1">
-                            <p className="card__title text-lg font-medium">{item.title}</p>
-                            <p className="card__description text-sm text-muted-foreground">{item.short_description}</p>
+                            <p className="card__title text-lg font-medium text-primary">{title}</p>
+                            <p className="card__description text-sm text-zinc-500 line-clamp-3">{short_description}</p>
                         </div>
 
                         {/* Button */}
@@ -51,7 +44,6 @@ const StyledWrapper = styled.div`
     .card {
         --card-bg: var(--background);
         --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-
         background: var(--card-bg);
         border-radius: 20px;
         position: relative;
@@ -107,7 +99,7 @@ const StyledWrapper = styled.div`
         box-shadow:
             0 20px 25px -5px rgba(0, 0, 0, 0.1),
             0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        border-color: rgba(124, 58, 237, 0.2);
+        border-color: rgba(67, 66, 141, 0.2);
     }
 
     .card:hover .card__glow {

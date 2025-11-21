@@ -14,6 +14,7 @@ Route::get('/news', [BuddhistFrontPageController::class, 'news']);
 Route::get('/posts/{id}', [BuddhistFrontPageController::class, 'post_show']);
 Route::get('/about', [BuddhistFrontPageController::class, 'about']);
 Route::get('/projects', [BuddhistFrontPageController::class, 'projects']);
+Route::get('/detail', [BuddhistFrontPageController::class, 'detail']);
 
 // Route::get('/news', function () {
 //     return Inertia::render('Buddhist/News/Index');
