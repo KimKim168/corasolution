@@ -25,8 +25,8 @@ const TableData = () => {
                             <TableHeadWithSort field="code" label="Code" />
                             <TableHeadWithSort field="name" label="Name" />
                             <TableHeadWithSort field="name_kh" label="Name Khmer" />
-                            {/* <TableHeadWithSort field="parent_code" label="Parent Code" /> 
-                            <TableHeadWithSort field="type_code" label="Type" />*/}
+                            <TableHeadWithSort field="parent_code" label="Parent Code" /> 
+                            {/*<TableHeadWithSort field="type_code" label="Type" />*/}
                             <TableHeadWithSort field="order_index" label="Order Index" />
                             <TableHeadWithSort field="short_description" label="Short Description" />
                             <TableHeadWithSort field="short_description_kh" label="Short Description Khmer" />
@@ -74,8 +74,8 @@ const TableData = () => {
                                 <TableCellText value={item.code} />
                                 <TableCellText value={item.name} />
                                 <TableCellText value={item.name_kh} />
-                                {/* <TableCellText value={item.parent_code} />
-                                <TableCellText value={item.type?.name} /> */}
+                                <TableCellText value={item.parent_code} />
+                                {/* <TableCellText value={item.type?.name} /> */}
                                 <TableCellText value={item.order_index} />
                                 <TableCellText value={item.short_description} />
                                 <TableCellText value={item.short_description_kh} />

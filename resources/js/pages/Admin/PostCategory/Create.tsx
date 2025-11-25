@@ -92,7 +92,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                 />
                 {errors && <AllErrorsAlert title="Please fix the following errors" errors={errors} />}
 
-                {/* <div className="sticky top-0">
+                <div className="sticky top-0">
                     <Tabs value={inputLanguage} onValueChange={(val: any) => setInputLanguage(val)}>
                         <TabsList className="border bg-border/50 p-1 dark:border-white/20">
                             <TabsTrigger value="default" className="h-full dark:data-[state=active]:bg-white/20">
@@ -157,74 +157,6 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             error={errors.short_description}
                             containerClassName="col-span-2"
                         />
-                    </div>
-                )} */}
-                <div className="form-field-container md:grid-cols-2">
-                        <FormField
-                            id="code"
-                            name="code"
-                            label="Code"
-                            value={data.code}
-                            onChange={(val: string) => setData('code', toSlug(val))}
-                            error={errors.code}
-                            description="Example: my-item-code"
-                            containerClassName="col-span-2"
-                        />
-
-                        <FormField
-                            required
-                            id="name"
-                            name="name"
-                            label="Name"
-                            value={data.name}
-                            onChange={(val) => setData('name', val)}
-                            error={errors.name}
-                            
-                        />
-                        <FormField
-                            id="name_kh"
-                            name="name_kh"
-                            label="Name Khmer"
-                            value={data.name_kh}
-                            onChange={(val) => setData('name_kh', val)}
-                            error={errors.name_kh}
-                        />
-                    </div>
-                {inputLanguage == 'default' && (
-                    <>
-                        <div className="form-field-container md:grid-cols-1">
-                            {/* {parents?.length > 0 && (
-                                <FormCombobox
-                                    name="parent_id"
-                                    label="Parent"
-                                    options={[
-                                        {
-                                            value: null,
-                                            label: t('NA'),
-                                        },
-                                        ...parents.map((item: any) => ({
-                                            value: item.id.toString(),
-                                            label: `(${item.order_index}) ${currentLocale == 'kh' ? item.name_kh || item.name : item.name}`,
-                                        })),
-                                    ]}
-                                    value={data.parent_id || ''}
-                                    onChange={(val) => setData('parent_id', val)}
-                                    error={errors.parent_id}
-                                    description="Select the parent that this category belongs to."
-                                />
-                            )} */}
-                            <FormField
-                                required
-                                type="number"
-                                id="order_index"
-                                name="order_index"
-                                label="Order Index"
-                                value={data.order_index}
-                                onChange={(val) => setData('order_index', val)}
-                                error={errors.order_index}
-                                description="Lower number has higher priority."
-                            />
-                        </div>
                         <div className={cn('form-field-container', !editData?.image && 'md:grid-cols-1')}>
                             <FormFileUpload
                                 key={editData?.image}
@@ -244,9 +176,11 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                                 />
                             )}
                         </div>
-                    </>
+                        
+                    </div>
+                    
                 )}
-
+                
                 {progress && <ProgressWithValue value={progress.percentage} position="start" />}
 
                 {!readOnly && <SubmitButton processing={processing} />}

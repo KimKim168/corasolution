@@ -1,13 +1,13 @@
 import { usePage } from '@inertiajs/react';
 import Layout from '../Buddhist/Layout';
 
-const Detail = () => {
+const OurBlogDetail = () => {
     const { detailData } = usePage<any>().props;
     return (
         <Layout>
-            <div className="section-container py-8 md:py-12 " dangerouslySetInnerHTML={{ __html: detailData?.long_description }} />
+            <div className="section-container py-8 md:py-12" dangerouslySetInnerHTML={{ __html: detailData?.long_description }} />
         </Layout>
     );
 };
 
-export default Detail;
+export default OurBlogDetail;

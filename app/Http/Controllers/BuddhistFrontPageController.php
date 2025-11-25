@@ -3,78 +3,197 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
-use App\Models\Faq;
-use App\Models\KeyValue;
-use App\Models\LibraryData;
-use App\Models\Location;
 use App\Models\Page;
 use App\Models\Post;
-use App\Models\PostCategory;
-use App\Models\PostFile;
-use App\Models\PostImage;
-use App\Models\Type;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Inertia\Inertia;
 
 class BuddhistFrontPageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    // public function index()
-    // {
-    //     $categoryWithPostsData = PostCategory::with(['posts' => function ($query) {
-    //         $query->orderBy('created_at', 'desc')
-    //             ->select(['id', 'category_code', 'thumbnail', 'title', 'title_kh', 'short_description', 'short_description_kh']) // include FK and PK
-    //             ->limit(6);
-    //     }])
-    //         ->orderBy('order_index')
-    //         ->orderBy('name')
-    //         ->get();
-
-    //     $slides = Banner::all();
-    //     return Inertia::render('Buddhist/Index', [
-    //         'categoryWithPostsData' => $categoryWithPostsData,
-    //         'slides' => $slides,
-    //     ]);
-    // }
-    public function about(Request $request)
-    {
-        return Inertia::render('Frontend/About');
-    }
-    public function projects(Request $request)
-    {
-        return Inertia::render('Frontend/project');
-    }
     public function homepage(Request $request)
     {
+        $query = Page::query();
+
+        // Get About page
+        $about = (clone $query)
+            ->where('code', 'about')
+            ->with('images')
+            ->first();
+
+        // Get Services page with children + images
+        $services = (clone $query)
+            ->where('code', 'services')
+            ->with([
+                'images',
+                'children' => function ($q) {
+                    $q->orderBy('id', 'desc')
+                        ->with('images');
+                }
+            ])
+            ->first();
+        $projects = (clone $query)
+            ->where('code', 'projects')
+            ->with([
+                'images',
+                'children' => function ($q) {
+                    $q->orderBy('id', 'desc')
+                        ->with('images');
+                }
+            ])
+            ->first();
+        $tableData = Post::orderBy('id','desc')->get();
+
         $slides = Banner::all();
-        return Inertia::render('Frontend/HomePage',[
-            'slides' => $slides,
+        // return $projects;
+        return Inertia::render('Frontend/HomePage', [
+            'slides'   => $slides,
+            'about'    => $about,
+            'services' => $services,
+            'projects' => $projects,
+            'tableData' => $tableData,
         ]);
     }
-    public function products(Request $request)
+
+    public function about(Request $request)
     {
-        return Inertia::render('Frontend/Products/Index');
+        $data = Page::where('code', 'about')
+            ->with([
+                'images',
+                'children' => function ($q) {
+                    $q->orderBy('order_index', 'desc')
+                        ->with([
+                            'images',
+                            'children' => function ($q) {
+                                $q->orderBy('id', 'desc')
+                                    ->with('images');
+                            }
+                        ]);
+                }
+            ])
+            ->first();
+
+        $services = Page::where('code', 'services')
+            ->with([
+                'images',
+                'children' => function ($q) {
+                    $q->orderBy('id', 'desc')
+                        ->with('images');
+                }
+            ])
+            ->first();
+        return Inertia::render('Frontend/About', [
+            'data' => $data,
+            'services' => $services,
+        ]);
     }
 
-     public function services(Request $request)
+    public function projects(Request $request)
     {
-        return Inertia::render('Frontend/Services/Index');
+        $projects = Page::where('code', 'projects')
+            ->with([
+                'images',
+                'children' => function ($q) {
+                    $q->orderBy('id', 'desc')
+                        ->with([
+                            'images',
+                        ]);
+                }
+            ])
+            ->first();
+        return Inertia::render('Frontend/project', [
+            'projects' => $projects
+        ]);
     }
-     public function contact(Request $request)
+
+    public function products(Request $request)
     {
-        return Inertia::render('Frontend/Contact/Index');
+        $data = Page::where('code', 'products')
+            ->with([
+                'children' => function ($q) {
+                    $q->orderBy('id', 'desc')
+                        ->with([
+                            'images',
+                        ]);
+                }
+            ])
+            ->first();
+        // return $data;
+        return Inertia::render('Frontend/Products/Index', [
+            'data' => $data,
+        ]);
     }
-     public function news(Request $request)
+
+    public function services(Request $request)
     {
-        return Inertia::render('Frontend/News');
+        $services = Page::where('code', 'services')
+            ->with([
+                'images',
+                'children' => function ($q) {
+                    $q->orderBy('id', 'desc')
+                        ->with('images');
+                }
+            ])
+            ->first();
+        // return $services;
+        return Inertia::render('Frontend/Services/Index', [
+            'services' => $services,
+        ]);
     }
-     public function detail(Request $request)
+    public function contact(Request $request)
     {
-        return Inertia::render('Frontend/Detail');
+        $header = Page::where('code', 'contact-us')->first();
+        // return $header;
+        return Inertia::render('Frontend/Contact/Index',[
+            'header' => $header
+        ]);
+    }
+    public function our_blogs(Request $request)
+    {
+        $perPage = $request->input('perPage', 12);
+        $search = $request->input('search', '');
+        $category_code = $request->input('category_code');
+        
+        $query = Post::query();
+        
+        if ($category_code) {
+            $query->where('category_code', $category_code);
+        }
+        if ($search) {
+            $query->where(function ($sub_query) use ($search) {
+                $sub_query->where('title', 'LIKE', "%{$search}%")
+                    ->orWhere('title_kh', 'LIKE', "%{$search}%")
+                    ->orWhere('short_description', 'LIKE', "%{$search}%")
+                    ->orWhere('keywords', 'LIKE', "%{$search}%")
+                    ->orWhere('short_description_kh', 'LIKE', "%{$search}%")
+                    ->orWhere('long_description', 'LIKE', "%{$search}%")
+                    ->orWhere('long_description_kh', 'LIKE', "%{$search}%")
+                    ->orWhere('category_code', 'LIKE', "%{$search}%");
+            });
+        }
+        $query->orderBy('id', 'desc');
+
+        $tableData = $query->paginate($perPage)->onEachSide(2);
+
+        $tableData =  $query->limit(3)->get();
+        // return $tableData;
+        return Inertia::render('Frontend/News',[
+            'tableData' => $tableData,
+        ]);
+    }
+    public function our_blog($id)
+    {
+        $detailData = Post::findOrFail($id);
+        return Inertia::render('Frontend/OurBlogDetail',[
+            'detailData' => $detailData,
+        ]);
+    }
+    public function detail($id)
+    {
+        $detailData = Page::findOrFail($id);
+        // return $detailData;
+        return Inertia::render('Frontend/Detail', [
+            'detailData' => $detailData,
+        ]);
     }
 
     // public function posts(Request $request)

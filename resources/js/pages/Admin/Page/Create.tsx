@@ -177,17 +177,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             error={errors.code}
                             description={editData?.children_count > 0 ? `Page has children — cannot update code.` : `Example: my-item-code`}
                         />
-                        <FormField
-                            required
-                            type="number"
-                            id="order_index"
-                            name="order_index"
-                            label="Order Index"
-                            value={data.order_index || 100}
-                            onChange={(val) => setData('order_index', Number(val))}
-                            error={errors.order_index}
-                            description="Lower number has higher priority."
-                        />
+                       
 
                         <FormField
                             required
@@ -210,7 +200,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             containerClassName="col-span-2"
                         />
 
-                        {/* {parents?.length > 0 && (
+                         {parents?.length > 0 && (
                             <FormCombobox
                                 name="parent_code"
                                 label="Parent"
@@ -230,8 +220,19 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                                 description="Select the parent page where this page belongs to."
                             />
                         )}
+                         <FormField
+                            required
+                            type="number"
+                            id="order_index"
+                            name="order_index"
+                            label="Order Index"
+                            value={data.order_index || 100}
+                            onChange={(val) => setData('order_index', Number(val))}
+                            error={errors.order_index}
+                            description="Lower number has higher priority."
+                        />
 
-                        {types?.length > 0 && (
+                        {/*{types?.length > 0 && (
                             <FormCombobox
                                 name="type_code"
                                 label="Type"

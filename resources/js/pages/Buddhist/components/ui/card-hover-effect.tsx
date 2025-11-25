@@ -10,7 +10,7 @@ export const HoverEffect = ({
     items: {
         title: string;
         description: string;
-        image: string; // add image property
+        image: any; // add image property
         link: string;
     }[];
     className?: string;
@@ -45,7 +45,7 @@ export const HoverEffect = ({
                         </div>
                         <CardTitle className='text-lg'>{item.title}</CardTitle>
                         <CardDescription className='text-base mt-1'>{item.description}</CardDescription>
-                        <ReadMore item={`/detail/1`} />
+                        <ReadMore item={`${item?.link}`} />
                     </Card>
                 </a>
             ))}

@@ -178,7 +178,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             containerClassName="col-span-2"
                         />
 
-                        <FormField
+                        {/* <FormField
                             id="keywords_kh"
                             name="keywords_kh"
                             label="SEO Keywords Khmer"
@@ -186,7 +186,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             onChange={(val) => setData('keywords_kh', val)}
                             error={errors.keywords_kh}
                             containerClassName="col-span-2"
-                        />
+                        /> */}
 
                         {/* <FormField
                             id="working_hours_kh"
@@ -248,7 +248,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             containerClassName="col-span-2"
                         />
 
-                        <FormField
+                        {/* <FormField
                             id="keywords"
                             name="keywords"
                             label="SEO Keywords"
@@ -256,7 +256,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             onChange={(val) => setData('keywords', val)}
                             error={errors.keywords}
                             containerClassName="col-span-2"
-                        />
+                        /> */}
 
                         <FormField
                             id="email"
@@ -306,24 +306,24 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         />
 
                         <div className="md:col-span-2">
-                            {/* <FormField
+                            <FormField
                                 id="google_map_embed"
                                 name="google_map_embed"
                                 label="Google Map Embed"
                                 value={data.google_map_embed}
                                 onChange={(val) => setData('google_map_embed', val)}
                                 error={errors.google_map_embed}
-                            /> */}
+                            />
                         </div>
 
-                        <div>
+                        <div className="md:col-span-2">
                             <FormFileUpload key={editData?.logo} id="logo" label="Logo" files={files} setFiles={setFiles} />
                             {editData?.logo && (
                                 <UploadedImage label="Uploaded Logo" images={editData?.logo} basePath="/assets/images/website_infos/" />
                             )}
                         </div>
 
-                        <div>
+                        {/* <div>
                             <FormFileUpload
                                 key={editData?.logo_darkmode}
                                 id="logo_darkmode"
@@ -338,7 +338,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                                     basePath="/assets/images/website_infos/"
                                 />
                             )}
-                        </div>
+                        </div> */}
                     </div>
                 )}
 

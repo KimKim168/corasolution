@@ -1,115 +1,59 @@
-import {
-    Carousel,
-    CarouselApi,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import React from "react";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { usePage } from '@inertiajs/react';
+import Autoplay from 'embla-carousel-autoplay';
+import React, { useEffect, useState } from 'react';
+
+type SlideItem = {
+    id: number;
+    name: string;
+    title?: string;
+    short_description: string;
+    image: string;
+};
 
 const Slide: React.FC = () => {
-    const slides = [
-        {
-            id: 1,
-            title: "Innovative Mobile App Solutions",
-            short_description:
-                "Transform your ideas into engaging and high-performance mobile applications. Our team delivers custom-built apps with intuitive design and seamless functionality across platforms.",
-            image: "slide1.png",
-            link: "https://example.com/1",
-        },
-        {
-            id: 2,
-            title: "Cloud Hosting Solutions",
-            short_description:
-                "Scale your business with ease using our cloud hosting solutions. Our services provide flexibility, speed, and security, ensuring your website can handle growing traffic and data demands.",
-            image: "slide2.png",
-            link: "https://example.com/2",
-        },
-    ];
+    const { slides } = usePage<{ slides: SlideItem[] }>().props;
 
-    const [api, setApi] = React.useState<CarouselApi | null>(null);
-    const [current, setCurrent] = React.useState(0);
-    const [count, setCount] = React.useState(0);
+    const [api, setApi] = useState<CarouselApi | null>(null);
+    const [current, setCurrent] = useState(0);
+    const [count, setCount] = useState(0);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (!api) return;
-        const updateCurrent = () => setCurrent(api.selectedScrollSnap());
 
-        updateCurrent();
+        const update = () => setCurrent(api.selectedScrollSnap());
+
         setCount(api.scrollSnapList().length);
+        update();
 
-        api.on("select", updateCurrent);
-        return () => api.off("select", updateCurrent);
+        api.on('select', update);
+        return () => api.off('select', update);
     }, [api]);
 
     return (
-        <Carousel
-            plugins={[Autoplay({ delay: 4500 })]}
-            opts={{ align: "start", loop: true }}
-            setApi={setApi}
-            className="relative w-full"
-        >
+        <Carousel className="relative w-full" setApi={setApi} opts={{ align: 'start', loop: true }} plugins={[Autoplay({ delay: 4500 })]}>
             <CarouselContent>
-                {slides.map((slide) => (
-                    <CarouselItem key={slide.id} >
-                        <div className="relative w-full aspect-video md:aspect-[16/5] overflow-hidden">
-                            {/* Overlay gradient */}
-                            <div className="absolute inset-0 z-10"></div>
+                {slides?.map((item) => (
+                    <CarouselItem key={item.id}>
+                        <div className="relative aspect-[16/5] w-full overflow-hidden">
+                            {/* Image */}
+                            <img src={`/assets/images/banners/${item.image}`} alt={item.title || item.name} className="h-full w-full object-cover" />
 
-                            {/* Slide Image */}
-                            <img
-                                src={`/assets/images/${slide.image}`}
-                                alt={slide.title}
-                                className="h-full w-full object-cover"
-                            />
+                            {/* Overlay */}
+                            <div className="absolute inset-0 z-10 bg-black/20" />
 
-                            {/* Slide Content */}
-                            <div className="absolute inset-y-0 left-6 sm:left-10 md:left-16 lg:left-24 flex flex-col justify-center w-[80%] sm:w-[60%] lg:w-[45%] text-white z-20">
-                                <h2 className="font-costum1 text-xl sm:text-2xl md:text-5xl font-bold  drop-shadow-xl">
-                                    {slide.title}
-                                </h2>
+                            {/* Content */}
+                            <div className="absolute inset-y-0 left-4 z-20 flex w-[90%] flex-col justify-center text-white sm:left-6 sm:w-[75%] md:left-12 md:w-[60%] lg:left-24 lg:w-[45%]">
+                                <h2 className="font-costum1 text-sm font-bold drop-shadow-xl sm:text-xl md:text-3xl lg:text-5xl">{item.name}</h2>
 
-                                <p className="mt-3 text-xs sm:text-sm md:text-base lg:text-lg opacity-90 leading-relaxed">
-                                    {slide.short_description}
+                                <p className="sm:mt-2 line-clamp-2 text-[10px] leading-relaxed opacity-90 sm:mt-3 sm:line-clamp-3 sm:text-xs md:text-base lg:line-clamp-none lg:text-lg">
+                                    {item.short_description}
                                 </p>
-
-                                {/* {slide.link && (
-                                    <a
-                                        href={slide.link}
-                                        className="mt-6 w-max rounded-full border border-white/40 bg-white/10 px-4 py-2 text-xs sm:text-sm md:text-base backdrop-blur-md transition-all hover:bg-white hover:text-black hover:shadow-xl"
-                                    >
-                                        Learn More →
-                                    </a>
-                                )} */}
                             </div>
                         </div>
                     </CarouselItem>
                 ))}
             </CarouselContent>
-
-            {/* Pagination + Arrows */}
-            {/* <div className="absolute bottom-6 left-0 right-0 flex items-center justify-between px-6 md:px-10 z-30">
-                <div className="flex gap-2">
-                    {Array.from({ length: count }).map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => api?.scrollTo(index)}
-                            className={`h-3 w-3 rounded-full transition-all ${
-                                current === index
-                                    ? "bg-white scale-110"
-                                    : "bg-white/40 hover:bg-white/70"
-                            }`}
-                        />
-                    ))}
-                </div>
-
-                <div className="flex gap-3">
-                    <CarouselPrevious className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-all" />
-                    <CarouselNext className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-all" />
-                </div>
-            </div> */}
         </Carousel>
     );
 };

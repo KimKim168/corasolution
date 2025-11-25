@@ -100,61 +100,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                 />
                 {errors && <AllErrorsAlert title="Please fix the following errors" errors={errors} />}
 
-                <div className="sticky top-0">
-                    <Tabs value={inputLanguage} onValueChange={(val: any) => setInputLanguage(val)}>
-                        <TabsList className="border bg-border/50 p-1 dark:border-white/20">
-                            <TabsTrigger value="default" className="h-full dark:data-[state=active]:bg-white/20">
-                                {t('Default')}
-                            </TabsTrigger>
-                            <TabsTrigger value="khmer" className="h-full dark:data-[state=active]:bg-white/20">
-                                {t('Khmer')}
-                            </TabsTrigger>
-                        </TabsList>
-                    </Tabs>
-                </div>
-
-                {inputLanguage == 'khmer' ? (
-                    <div className="form-field-container">
-                        <FormField
-                            id="name_kh"
-                            name="name_kh"
-                            label="Name Khmer"
-                            value={data.name_kh}
-                            onChange={(val) => setData('name_kh', val)}
-                            error={errors.name_kh}
-                            containerClassName="col-span-2"
-                        />
-
-                        <FormFieldTextArea
-                            id="short_description_kh"
-                            name="short_description_kh"
-                            label="Short Description Khmer"
-                            value={data.short_description_kh}
-                            onChange={(val) => setData('short_description_kh', val)}
-                            error={errors.short_description_kh}
-                            containerClassName="col-span-2"
-                        />
-                        <FormFieldTextArea
-                            id="long_description_kh"
-                            name="long_description_kh"
-                            label="Long Description Khmer"
-                            value={data.long_description_kh}
-                            onChange={(val) => setData('long_description_kh', val)}
-                            error={errors.long_description_kh}
-                            containerClassName="col-span-2"
-                        />
-
-                        <FormField
-                            id="button_title_kh"
-                            name="button_title_kh"
-                            label="Button title khmer"
-                            value={data.button_title_kh}
-                            onChange={(val) => setData('button_title_kh', val)}
-                            error={errors.button_title_kh}
-                        />
-                    </div>
-                ) : (
-                    <div className="form-field-container">
+                <div className="form-field-container">
                         <FormField
                             required
                             id="name"
@@ -171,8 +117,25 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             value={data.name_kh}
                             onChange={(val) => setData('name_kh', val)}
                             error={errors.name_kh}
-                            containerClassName="col-span-2"
                         />
+                        
+                        <FormFieldTextArea
+                            id="short_description"
+                            name="short_description"
+                            label="Short Description"
+                            value={data.short_description}
+                            onChange={(val) => setData('short_description', val)}
+                            error={errors.short_description}
+                        />
+                          <FormFieldTextArea
+                            id="short_description_kh"
+                            name="short_description_kh"
+                            label="Short Description Khmer"
+                            value={data.short_description_kh}
+                            onChange={(val) => setData('short_description_kh', val)}
+                            error={errors.short_description_kh}
+                        />
+
                          <FormField
                             required
                             type="number"
@@ -185,43 +148,6 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             description="Lower number has higher priority."
                         />
 
-                        <FormFieldTextArea
-                            id="short_description"
-                            name="short_description"
-                            label="Short Description"
-                            value={data.short_description}
-                            onChange={(val) => setData('short_description', val)}
-                            error={errors.short_description}
-                            containerClassName="col-span-2"
-                        />
-
-                        <FormFieldTextArea
-                            id="long_description"
-                            name="long_description"
-                            label="Long Description"
-                            value={data.long_description}
-                            onChange={(val) => setData('long_description', val)}
-                            error={errors.long_description}
-                            containerClassName="col-span-2"
-                        />
-
-                        <FormField
-                            id="button_title"
-                            name="button_title"
-                            label="Button title"
-                            value={data.button_title}
-                            onChange={(val) => setData('button_title', val)}
-                            error={errors.button_title}
-                        />
-
-                        <FormField
-                            id="link"
-                            name="link"
-                            label="Link"
-                            value={data.link}
-                            onChange={(val) => setData('link', val)}
-                            error={errors.link}
-                        />
 
                         {types?.length > 0 && (
                             <FormCombobox
@@ -238,27 +164,6 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         )}
 
                        
-
-                        <div className="col-span-2">
-                            <FormFileUpload error={errors.image} key={editData?.image} id="image" label="Image" files={files} setFiles={setFiles} />
-                            {editData?.image && (
-                                <UploadedImage label="Uploaded Image" images={editData?.image} basePath="/assets/images/banners/thumb/" />
-                            )}
-                        </div>
-                    </div>
-                )}
-                <div className="form-field-container">
-                         <FormField
-                            required
-                            type="number"
-                            id="order_index"
-                            name="order_index"
-                            label="Order Index"
-                            value={data.order_index}
-                            onChange={(val) => setData('order_index', val)}
-                            error={errors.order_index}
-                            description="Lower number has higher priority."
-                        />
 
                         <div className="col-span-2">
                             <FormFileUpload error={errors.image} key={editData?.image} id="image" label="Image" files={files} setFiles={setFiles} />

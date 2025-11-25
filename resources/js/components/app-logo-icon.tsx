@@ -1,9 +1,12 @@
+import { usePage } from '@inertiajs/react';
 import { SVGAttributes } from 'react';
 
 export default function AppLogoIcon(props: SVGAttributes<SVGElement>) {
+        const { website_info } = usePage<any>().props;
+    
     return (
         <div className='bg-white'>
-            <img src="/assets/buddhist/logo.webp" alt="Application Logo" className="h-full w-full object-contain" />
+            <img src={`/assets/images/website_infos/${website_info?.logo}`} alt="Application Logo" className="h-full w-full object-contain" />
             {/* <svg {...props} viewBox="0 0 40 42" xmlns="http://www.w3.org/2000/svg">
                 <path
                     fillRule="evenodd"

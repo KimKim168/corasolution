@@ -27,7 +27,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
             <NavigationMenuList className="justify-end gap-3 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start data-[orientation=vertical]:justify-start">
                 {menuItems.map((item) => (
                     <NavigationMenuItem key={item.id} className="text-primary max-lg:w-full max-lg:text-center">
-                        <NavigationMenuLink className='text-md' asChild>
+                        <NavigationMenuLink className='text-base' asChild>
                             <Link prefetch href={item.link} className={getLinkClass(item.link)}>
                                 {t(item.name)}
                             </Link>

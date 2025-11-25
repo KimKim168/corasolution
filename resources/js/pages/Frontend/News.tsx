@@ -1,9 +1,9 @@
-import NewsCora from '@/components/OurBlog';
 import Layout from '../Buddhist/Layout';
 import NewCora from '@/components/NewCard';
 import Header from '@/components/Header';
 
 const News = () => {
+    
     return (
         <Layout>
             <section className="section-container py-6 md:py-12">
@@ -65,7 +65,7 @@ const News = () => {
                 </div>
 
                 {/* News Card List */}
-                <NewCora />
+                <NewCora/>
             </section>
         </Layout>
     );
