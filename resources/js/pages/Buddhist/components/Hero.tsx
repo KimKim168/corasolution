@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 
 const Hero = ({title, short_description, image, services}:any) => {
     return (
-        <div className="section-container mx-auto flex flex-col justify-between gap-4 py-10 md:py-16 lg:flex-row">
+        <div className="section-container mx-auto flex flex-col justify-between gap-4 py-8 md:py-12 lg:flex-row">
             {/* Left Side */}
             <div className="mb-10">
                 <Header title={title} short_description={short_description}/>
