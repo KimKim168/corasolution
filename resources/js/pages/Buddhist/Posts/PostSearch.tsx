@@ -14,7 +14,7 @@ const PostSearch = ({ debounceSearch = true }: PostSearchProps) => {
     const initialQueryParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams();
     const [search, setSearch] = useState(initialQueryParams.get('search') || '');
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
-    const isOnLibrariesPage = currentPath === '/posts';
+    const isOnLibrariesPage = currentPath === '/our_blogs';
 
     // Only debounce if enabled
     const debouncedSearch = useCallback(
@@ -39,7 +39,7 @@ const PostSearch = ({ debounceSearch = true }: PostSearchProps) => {
         } else {
             const queryParams = new URLSearchParams();
             if (search) queryParams.set('search', search);
-            router.get(`/posts?${queryParams.toString()}`);
+            router.get(`/our_blogs?${queryParams.toString()}`);
         }
     };
 

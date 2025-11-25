@@ -41,7 +41,7 @@ class BuddhistFrontPageController extends Controller
                 }
             ])
             ->first();
-        $tableData = Post::orderBy('id','desc')->get();
+        $tableData = Post::orderBy('id', 'desc')->get();
 
         $slides = Banner::all();
         // return $projects;
@@ -143,7 +143,7 @@ class BuddhistFrontPageController extends Controller
     {
         $header = Page::where('code', 'contact-us')->first();
         // return $header;
-        return Inertia::render('Frontend/Contact/Index',[
+        return Inertia::render('Frontend/Contact/Index', [
             'header' => $header
         ]);
     }
@@ -152,22 +152,18 @@ class BuddhistFrontPageController extends Controller
         $perPage = $request->input('perPage', 12);
         $search = $request->input('search', '');
         $category_code = $request->input('category_code');
-        
+
         $query = Post::query();
-        
-        if ($category_code) {
-            $query->where('category_code', $category_code);
-        }
+
+
         if ($search) {
             $query->where(function ($sub_query) use ($search) {
                 $sub_query->where('title', 'LIKE', "%{$search}%")
                     ->orWhere('title_kh', 'LIKE', "%{$search}%")
                     ->orWhere('short_description', 'LIKE', "%{$search}%")
-                    ->orWhere('keywords', 'LIKE', "%{$search}%")
                     ->orWhere('short_description_kh', 'LIKE', "%{$search}%")
                     ->orWhere('long_description', 'LIKE', "%{$search}%")
-                    ->orWhere('long_description_kh', 'LIKE', "%{$search}%")
-                    ->orWhere('category_code', 'LIKE', "%{$search}%");
+                    ->orWhere('long_description_kh', 'LIKE', "%{$search}%");
             });
         }
         $query->orderBy('id', 'desc');
@@ -176,14 +172,14 @@ class BuddhistFrontPageController extends Controller
 
         $tableData =  $query->limit(3)->get();
         // return $tableData;
-        return Inertia::render('Frontend/News',[
+        return Inertia::render('Frontend/News', [
             'tableData' => $tableData,
         ]);
     }
     public function our_blog($id)
     {
         $detailData = Post::findOrFail($id);
-        return Inertia::render('Frontend/OurBlogDetail',[
+        return Inertia::render('Frontend/OurBlogDetail', [
             'detailData' => $detailData,
         ]);
     }
