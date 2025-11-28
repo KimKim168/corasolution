@@ -69,7 +69,7 @@ const PostSearch = ({ debounceSearch = true }: PostSearchProps) => {
                         if (isOnLibrariesPage && debounceSearch) debouncedSearch(e.target.value);
                     }}
                     onKeyDown={handleKeyDown}
-                    placeholder="Search by title, short description..."
+                    placeholder="Search our blog"
                     className="flex-1 border-0 bg-transparent pl-2 text-base shadow-none focus-visible:ring-0 sm:pl-3 sm:text-lg"
                 />
 

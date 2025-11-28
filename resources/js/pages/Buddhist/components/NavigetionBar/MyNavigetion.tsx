@@ -28,7 +28,7 @@ const MyNavigetion = () => {
                     <NavMenu />
                     <div className="flex flex-col items-center">
                         <a
-                            href="https://t.me/boralala"
+                            href="https://t.me/alphalibtech"
                             className="rounded-md border-transparent p-2 text-base text-white bg-primary md:p-2"
                         >
                             Chat with Us
@@ -40,7 +40,7 @@ const MyNavigetion = () => {
                 <div className="flex items-center gap-2 lg:hidden">
                     <div className="flex flex-col items-center">
                         <a
-                            href="https://t.me/boralala"
+                            href="https://t.me/alphalibtech"
                             className="rounded-[4px] border-transparent p-1.5 text-[15px] text-white bg-primary"
                         >
                             Chat with Us

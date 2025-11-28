@@ -130,9 +130,9 @@ export default function MyFooter() {
                                 __html: website_info.copyright
                             }}
                         />
-                        <p className="text-sm">
+                        {/* <p className="text-sm">
                             {t('Power By')} : <b><a href='https://alphalib.org/'>Alphalib</a></b>
-                        </p>
+                        </p> */}
                     </div>
                 </div>
             </div>

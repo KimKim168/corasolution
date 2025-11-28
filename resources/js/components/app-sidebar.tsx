@@ -5,13 +5,13 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, Sid
 import { dashboard } from '@/routes';
 import { Link } from '@inertiajs/react';
 import {
+    AppWindowIcon,
     BookOpen,
     FilesIcon,
     Folder,
     LanguagesIcon,
     LayoutGrid,
     LayoutList,
-    LayoutListIcon,
     LucideIcon,
     MapPinHouseIcon,
     SchoolIcon,
@@ -107,6 +107,12 @@ const mainNavItems: {
         ],
     },
     {
+        title: 'Pages',
+        url: '/admin/pages',
+        icon: AppWindowIcon,
+        permission: 'page view',
+    },
+    {
         title: 'Website Settings',
         url: '/admin/website-infos',
         icon: SettingsIcon,
@@ -117,11 +123,11 @@ const mainNavItems: {
                 url: '/admin/website-infos',
                 permission: 'website_info view',
             },
-            {
-                title: 'Pages',
-                url: '/admin/pages',
-                permission: 'page view',
-            },
+            // {
+            //     title: 'Pages',
+            //     url: '/admin/pages',
+            //     permission: 'page view',
+            // },
             {
                 title: 'Links',
                 url: '/admin/links',
