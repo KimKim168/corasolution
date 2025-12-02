@@ -1,12 +1,13 @@
 import Header from "@/components/Header";
+import { usePage } from "@inertiajs/react";
 
 const Hero = ({title, short_description, image, services}:any) => {
+    const {locale} = usePage().props;
     return (
         <div className="section-container mx-auto flex flex-col justify-between gap-4 py-8 md:py-12 lg:flex-row">
             {/* Left Side */}
             <div className="mb-10">
                 <Header title={title} short_description={short_description}/>
-
                 {/* Services */}
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mt-6">
                     {services?.children?.map((service, index) => (
@@ -17,7 +18,7 @@ const Hero = ({title, short_description, image, services}:any) => {
 
                             <div className="ml-4">
                                 <a href={service?.link}>
-                                    <h3 className="text-base text-primary">{service?.name}</h3>
+                                    <h3 className="text-base text-primary">{locale === 'kh' ? service?.name_kh || service?.name : service?.name}</h3>
                                 </a>
                             </div>
                         </div>

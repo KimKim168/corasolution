@@ -10,9 +10,9 @@ const CompletProjectCora = ({projects}:any) => {
                     <CoraCard
                         key={child.id}
                         id={child.id}
-                        title={child.name}
-                        short_description={child.short_description}
-                        image={`/assets/images/pages/thumb/${child?.images?.[0].image}`}
+                        title={child?.name}
+                        short_description={child?.short_description}
+                        image={`/assets/images/pages/thumb/${child?.images?.[0]?.image}`}
                         href={`/detail/${child.id}`}
                     />
                 ))}

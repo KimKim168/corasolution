@@ -159,14 +159,14 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             containerClassName="col-span-2"
                         />
 
-                        {/* <FormFieldTextArea
+                        <FormFieldTextArea
                             id="short_description_kh"
                             name="short_description_kh"
                             label="Short Description Khmer"
                             value={data.short_description_kh}
                             onChange={(val) => setData('short_description_kh', val)}
                             error={errors.short_description_kh}
-                        /> */}
+                        />
 
                         <FormFieldTextArea
                             id="address_kh"
@@ -175,10 +175,9 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             value={data.address_kh}
                             onChange={(val) => setData('address_kh', val)}
                             error={errors.address_kh}
-                            containerClassName="col-span-2"
                         />
 
-                        {/* <FormField
+                        <FormField
                             id="keywords_kh"
                             name="keywords_kh"
                             label="SEO Keywords Khmer"
@@ -186,7 +185,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             onChange={(val) => setData('keywords_kh', val)}
                             error={errors.keywords_kh}
                             containerClassName="col-span-2"
-                        /> */}
+                        />
 
                         {/* <FormField
                             id="working_hours_kh"
@@ -229,14 +228,14 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             containerClassName="col-span-2"
                         />
 
-                        {/* <FormFieldTextArea
+                        <FormFieldTextArea
                             id="short_description"
                             name="short_description"
                             label="Short Description"
                             value={data.short_description}
                             onChange={(val) => setData('short_description', val)}
                             error={errors.short_description}
-                        /> */}
+                        />
 
                         <FormFieldTextArea
                             id="address"
@@ -245,10 +244,9 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             value={data.address}
                             onChange={(val) => setData('address', val)}
                             error={errors.address}
-                            containerClassName="col-span-2"
                         />
 
-                        {/* <FormField
+                        <FormField
                             id="keywords"
                             name="keywords"
                             label="SEO Keywords"
@@ -256,7 +254,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             onChange={(val) => setData('keywords', val)}
                             error={errors.keywords}
                             containerClassName="col-span-2"
-                        /> */}
+                        />
 
                         <FormField
                             id="email"

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavbarLogo } from '../../Logo/NavbarLogo';
 import { NavigationSheet } from './NavigationSheet';
 import { NavMenu } from './NavMenu';
+import NavLanguage from '@/components/Navbar/NavLanguage';
 
 const MyNavigetion = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -34,7 +35,7 @@ const MyNavigetion = () => {
                             Chat with Us
                         </a>
                     </div>
-                    {/* <NavLanguage /> */}
+                    <NavLanguage />
                 </div>
 
                 <div className="flex items-center gap-2 lg:hidden">
@@ -47,7 +48,6 @@ const MyNavigetion = () => {
                         </a>
                     </div>
                     <NavigationSheet />
-                    
                 </div>
             </div>
         </nav>
