@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-const Header = ({title, short_description, className}:{title:any, short_description:any}) => {
+const Header = ({title, short_description}:{title:any, short_description:any}) => {
     return (
         <div >
             <p
@@ -15,7 +15,7 @@ const Header = ({title, short_description, className}:{title:any, short_descript
             >
                 {title}
             </p>
-            <h2 className={cn('mx-auto text-base md:text-lg text-zinc-600 mt-2', className)}>
+            <h2 className={cn('mx-auto text-base md:text-lg text-zinc-600 mt-2')}>
                 {short_description}
             </h2>
         </div>

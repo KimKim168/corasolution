@@ -9,11 +9,13 @@ type SlideItem = {
     name: string;
     title?: string;
     short_description: string;
+    name_kh?: string;
+    short_description_kh?: string;
     image: string;
 };
 
 const Slide: React.FC = () => {
-    const { slides } = usePage<{ slides: SlideItem[] }>().props;
+    const { slides, locale } = usePage<{ slides: SlideItem[] }>().props;
 
     const [api, setApi] = useState<CarouselApi | null>(null);
     const [current, setCurrent] = useState(0);
@@ -45,17 +47,19 @@ const Slide: React.FC = () => {
                             <div className="relative aspect-[16/5] w-full overflow-hidden">
                                 <img
                                     src={`/assets/images/banners/${item.image}`}
-                                    alt={item.title || item.name}
+                                    alt={item?.name}
                                     className="h-full w-full object-cover"
                                 />
 
                                 {/* <div className="absolute inset-0 z-10 bg-black/20" /> */}
 
                                 <div className="absolute inset-y-0 left-4 z-20 flex w-[90%] flex-col justify-center text-white sm:left-6 sm:w-[75%] md:left-12 md:w-[60%] lg:left-24 lg:w-[45%]">
-                                    <h2 className="font-costum1 text-sm font-bold drop-shadow-xl sm:text-xl md:text-3xl lg:text-5xl">{item.name}</h2>
+                                    <h2 className="font-costum1 text-sm font-bold drop-shadow-xl sm:text-xl md:text-3xl lg:text-5xl">
+                                        {locale === 'kh' ? item?.name_kh || item?.name : item?.name}
+                                    </h2>
 
                                     <p className="line-clamp-2 text-[10px] leading-relaxed opacity-90 sm:mt-2 sm:mt-3 sm:line-clamp-3 sm:text-xs md:text-base lg:line-clamp-none lg:text-lg">
-                                        {item.short_description}
+                                        {locale === 'kh' ? item?.short_description_kh || item?.short_description : item?.short_description}
                                     </p>
                                 </div>
                             </div>
@@ -65,20 +69,12 @@ const Slide: React.FC = () => {
             </Carousel>
 
             {/* Bottom Navigation Buttons */}
-            <div className="absolute bottom-1 md:bottom-4 left-1/2 z-30 flex -translate-x-1/2 items-center gap-1 md:gap-2">
-                <button
-                    onClick={() => api?.scrollPrev()}
-                    className="rounded-full text-white transition cursor-pointer"
-                    aria-label="Previous slide"
-                >
+            <div className="absolute bottom-1 left-1/2 z-30 flex -translate-x-1/2 items-center gap-1 md:bottom-4 md:gap-2">
+                <button onClick={() => api?.scrollPrev()} className="cursor-pointer rounded-full text-white transition" aria-label="Previous slide">
                     <ArrowLeftCircle className="h-5 w-5 md:h-7 md:w-7" />
                 </button>
 
-                <button
-                    onClick={() => api?.scrollNext()}
-                    className="rounded-full text-white transition cursor-pointer"
-                    aria-label="Next slide"
-                >
+                <button onClick={() => api?.scrollNext()} className="cursor-pointer rounded-full text-white transition" aria-label="Next slide">
                     <ArrowRightCircle className="h-5 w-5 md:h-7 md:w-7" />
                 </button>
             </div>

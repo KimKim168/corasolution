@@ -10,7 +10,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
 
     const menuItems = [
         { id: 1, name: 'Home', link: '/' },
-        { id: 7, name: 'About', link: '/about' },
+        { id: 7, name: 'About Us', link: '/about' },
         { id: 8, name: 'Services', link: '/services' },
         { id: 9, name: 'Products', link: '/products' },
         { id: 10, name: 'Contact', link: '/contact' },

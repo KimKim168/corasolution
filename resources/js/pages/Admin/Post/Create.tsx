@@ -196,6 +196,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                                 onChange={(val) => setData('category_code', val)}
                                 error={errors.category_code}
                                 description="Select the category where this item belongs to."
+                                className='col-span-2'
                             />
                         )}
                         {types?.length > 0 && (
@@ -224,7 +225,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                                 error={errors.status}
                             />
                         )} */}
-                        {languages?.length > 0 && (
+                        {/* {languages?.length > 0 && (
                             <FormCombobox
                                 name="language_code"
                                 label="Language"
@@ -236,7 +237,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                                 onChange={(val) => setData('language_code', val)}
                                 error={errors.language_code}
                             />
-                        )}
+                        )} */}
 
                         {/* external_link */}
 
@@ -252,7 +253,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
 
                         {/* external_link */}
                         
-                        <FormField
+                        {/* <FormField
                             containerClassName="col-span-2"
                             id="keywords"
                             name="keywords"
@@ -261,7 +262,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             onChange={(val) => setData('keywords', val)}
                             error={errors.keywords}
                             description="Help users find your content more easily. Example: <b>election, candidates, political debate</b>"
-                        />
+                        /> */}
                     </div>
                 )}
 
@@ -345,7 +346,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                             </Tabs>
                         </div>
 
-                        <div className="w-full rounded-lg bg-muted/80 p-4">
+                        {/* <div className="w-full rounded-lg bg-muted/80 p-4">
                             <FormFileUpload
                                 dropzoneOptions={{
                                     maxFiles: 100,
@@ -369,7 +370,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                                     basePath="/assets/files/posts/"
                                 />
                             )}
-                        </div>
+                        </div> */}
                     </>
                 )}
 

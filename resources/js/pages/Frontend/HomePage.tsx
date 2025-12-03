@@ -8,7 +8,7 @@ import Slide from '../Buddhist/components/SlideShow/Slide';
 import Layout from '../Buddhist/Layout';
 
 const HomePage = () => {
-    const { about, services, projects, tableData } = usePage<any>().props;
+    const { about, services, projects, tableData, locale } = usePage<any>().props;
     const { website_info, app_url, sourceOfFundingHeader, libraryTypeHeader, provinceHeader, claStatisticHeader } = usePage<any>().props;
     const { t, currentLocale } = useTranslation();
 
@@ -42,8 +42,8 @@ const HomePage = () => {
             <Slide />
             {/* Hero About */}
             <Hero
-                title={about?.name}
-                short_description={about?.short_description}
+                title={locale === 'kh' ? about?.name_kh || about?.name : about?.name}
+                short_description={locale === 'kh' ? about?.short_description_kh || about?.short_description : about?.short_description}
                 image={`/assets/images/pages/${about?.images?.[0]?.image}`}
                 services={services}
             />
@@ -53,13 +53,7 @@ const HomePage = () => {
             {/* Service */}
 
             {/* Project */}
-            <section className="section-container mt-6 md:mt-12">
-                <CompletProjectCora projects={projects} />
-                <div className="mx-auto mt-4 px-4 pb-2 text-xl font-bold text-primary md:text-right">
-                <a href="/projects">{t("See More")} &gt;</a>
-                </div>
-            </section>
-
+            <CompletProjectCora projects={projects} locale={locale} />
             {/* Project */}
 
             {/* Our Blog */}

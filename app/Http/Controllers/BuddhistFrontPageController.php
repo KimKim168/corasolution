@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use App\Models\Page;
 use App\Models\Post;
+use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -42,15 +43,16 @@ class BuddhistFrontPageController extends Controller
             ])
             ->first();
         $tableData = Post::orderBy('id', 'desc')->get();
-
+        $heading = PostCategory::first();
         $slides = Banner::all();
-        // return $projects;
+        // return $heading;
         return Inertia::render('Frontend/HomePage', [
             'slides'   => $slides,
             'about'    => $about,
             'services' => $services,
             'projects' => $projects,
             'tableData' => $tableData,
+            'heading' => $heading,
         ]);
     }
 
@@ -171,9 +173,11 @@ class BuddhistFrontPageController extends Controller
         $tableData = $query->paginate($perPage)->onEachSide(2);
 
         $tableData =  $query->limit(3)->get();
+        $heading = PostCategory::first();
         // return $tableData;
         return Inertia::render('Frontend/News', [
             'tableData' => $tableData,
+            'heading' => $heading,
         ]);
     }
     public function our_blog($id)

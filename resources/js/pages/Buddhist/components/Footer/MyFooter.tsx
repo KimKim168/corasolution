@@ -79,7 +79,7 @@ export default function MyFooter() {
                                 </li>
                                 <li>
                                     <Link prefetch href="/about" className="flex items-center gap-2 hover:underline">
-                                         {t('About')}
+                                         {t('About Us')}
                                     </Link>
                                 </li>
                                 <li>
